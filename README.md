@@ -4,7 +4,9 @@
 
 The reference implementation provides a production-grade web application that uses best practices from our guidance and gives developers concrete examples to build their own Reliable Web Application in Azure. This repository specifically demonstrates a Customer Account Management System (CAMS) application for the fictional company Contoso Fiber, embodying the reliable web app pattern with a focus on Java technologies. It guides developers through a simulated migration from an on-premises web application to Azure, detailing the architectural changes and enhancements that capitalize on the cloud's strengths during the initial adoption phase. 
 
-This project has [a companion article in the Azure Architecture Center](https://aka.ms/eap/rwa/java/doc) that describes design patterns and best practices that details the reliable web app pattern for Java web app. Here's an outline of the contents in this readme:
+This project has [a companion article in the Azure Architecture Center](https://aka.ms/eap/rwa/java/doc) and [self-paced workshop](./workshop/README.md) that describes design patterns and best practices that details the reliable web app pattern for Java web app. 
+
+Here's an outline of the contents in this readme:
 
 - [Architecture](#architecture)
 - [Workflow](#workflow)
@@ -18,7 +20,7 @@ Contoso Fiber aligned to a hub and spoke network topology in the production depl
 
 ![Architecture](./docs/icons/reliable-web-app-java.svg)
 
-This diagram describes the production deployment which is described in the [prod-deployment.md](./prod-deployment.md) file. The following steps below are for a [development deployment](./docs/icoms/reliable-web-app-java-dev.svg) which is a simplified version.
+This diagram describes the production deployment which is described in the [prod-deployment.md](./prod-deployment.md) file. The following steps below are for a [development deployment](./docs/icons/reliable-web-app-java-dev.svg) which is a simplified version.
 
 -	Cost efficiency: The hub acts as a central point for shared resources, promoting cost-effective resource reuse. For instance, Azure Bastion is a shared service in the hub, providing secure and cost-effective remote access without the need for separate deployments for each application.
 -	Traffic control and security: Network traffic is managed and secured using Network Security Groups and Route tables in each subnet, creating secure boundaries for Azure resources. Private endpoints add an extra layer of security, and a Jump Box allows for deployment within these boundaries, maintaining local IP access to resources.
@@ -126,6 +128,12 @@ Set the Azure region to be used:
 
 ```shell
 azd env set AZURE_LOCATION <pick_a_region>
+```
+
+Optional: Set the App Registration Service Management Reference:
+
+```shell
+azd env set AZURE_SERVICE_MANAGEMENT_REFERENCE <service_management_reference>
 ```
 
 ### 5. Create the Azure resources and deploy the code

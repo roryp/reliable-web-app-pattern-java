@@ -44,3 +44,5 @@ docker/.env
 # Azure CLI configuration
 az_ssh_config/
 ssh-config
+
+workshop/Part0-Basic-App/demo/target
